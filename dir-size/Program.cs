@@ -28,7 +28,7 @@ namespace dir_size
                 sorted.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
                 foreach (var item in sorted)
                 {
-                    Console.WriteLine(item.Key + " -> " + item.Value + " KiloBytes");
+                    Console.WriteLine(item.Key + " -> " + item.Value + " MegaBytes");
                 }
             }
 
@@ -51,7 +51,7 @@ namespace dir_size
                 var files = Directory.GetFiles(directory);
                 foreach (var file in files)
                 {
-                    size += new FileInfo(file).Length / 1000;
+                    size += new FileInfo(file).Length / (1024 * 1024);
                 }
 
                 return size;
