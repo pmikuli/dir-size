@@ -24,7 +24,9 @@ namespace dir_size
                     result.Add(dir, size);
                 }
 
-                foreach (var item in result)
+                var sorted = result.ToList();
+                sorted.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
+                foreach (var item in sorted)
                 {
                     Console.WriteLine(item.Key + " -> " + item.Value + " KiloBytes");
                 }
